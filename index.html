@@ -14,7 +14,7 @@
       <input type="text" name="bookmark-list-title" class="js-bookmark-list-entry title" placeholder="Title">
       <input type="text" name="bookmark-list-url" class="js-bookmark-list-entry url" placeholder="URL">
       <div>
-          <textarea rows="4" cols="50" name="comment" form="usrform">Description(optional)</textarea>
+          <textarea class="js-bookmark-list-entry description" rows="4" cols="50" name="comment" form="usrform">Description(optional)</textarea>
       </div>
 
       <div>
@@ -34,27 +34,27 @@
               <legend>Select a rating</legend>
       
               <div>
-                  <input type="radio" id="five-stars" name="star" checked />
+                  <input value="5" type="radio" id="five-stars" class="star" name="star" checked />
                   <label for="five-stars">&#x2606&#x2606&#x2606&#x2606&#x2606</label>
               </div>
       
               <div>
-                  <input type="radio" id="four-stars" name="star" />
+                  <input value="4" type="radio" id="four-stars" class="star" name="star" />
                   <label for="four-stars">&#x2606&#x2606&#x2606&#x2606</label>
               </div>
       
               <div>
-                  <input type="radio" id="three-stars" name="star" />
+                  <input value="3" type="radio" id="three-stars" class="star" name="star" />
                   <label for="three-stars">&#x2606&#x2606&#x2606</label>
               </div>
 
               <div>
-                  <input type="radio" id="two-stars" name="star" />
+                  <input value="2" type="radio" id="two-stars" class="star" name="star" />
                   <label for="two-stars">&#x2606&#x2606</label>
               </div>
       
               <div>
-                  <input type="radio" id="one-star" name="star" />
+                  <input value="1" type="radio" id="one-star" class="star" name="star" />
                   <label for="one star">&#x2606</label>
               </div>
       

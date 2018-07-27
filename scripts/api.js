@@ -6,24 +6,24 @@ const API = (function(){
   const BASE_URL = 'https://thinkful-list-api.herokuapp.com/antoinecatt';
 
   const getItems = function(callback) {
-    $.getJSON(`${BASE_URL}/items`, callback);
+    $.getJSON(`${BASE_URL}/bookmarks`, callback);
   };
 
-  const createItem = function(name, callback) {
-    let newItem = JSON.stringify({name});
-  
+  const createItem = function(title, url, desc, rating, callback) {
+    let bookMarkItem = {title, url, desc, rating}
+    let newItem = JSON.stringify(bookMarkItem);
     $.ajax({
-      url: `${BASE_URL}/items`,
+      url: `${BASE_URL}/bookmarks`,
       method: 'POST',
       contentType: 'application/JSON',
       data: newItem,
       success: callback
-    });
+  });
   };
   
   const editItem = function(id, editData, callback) {
     $.ajax({
-      url: `${BASE_URL}/items/${id}`,
+      url: `${BASE_URL}/bookmarks/${id}`,
       method: 'PATCH',
       contentType: 'application/JSON',
       data: JSON.stringify(editData),
@@ -33,7 +33,7 @@ const API = (function(){
 
   const deleteItem = function(id, callback) {
     $.ajax({
-      url: `${BASE_URL}/items/${id}`,
+      url: `${BASE_URL}/bookmarks/${id}`,
       method: 'DELETE',
       contentType: 'application/JSON',
       success: callback
@@ -41,6 +41,7 @@ const API = (function(){
   };
 
   return {
+    bookmarks: [],
     getItems,
     createItem,
     editItem,

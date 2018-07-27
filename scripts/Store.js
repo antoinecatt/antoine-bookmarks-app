@@ -1,10 +1,10 @@
-/* global Item */ 
+/* global */ 
 
 // eslint-disable-next-line no-unused-vars
 
 const Store = (function(){
 
-  const items = [
+  const bookmarks = [
     {
       id: 1235432,
       title: 'Gwent',
@@ -23,37 +23,35 @@ const Store = (function(){
     },
     {
       id: 1235432,
-      title: 'Gwent',
+      title: 'Blackjack',
       url: 'url-here.com', 
-      description: 'Real life card game', 
+      description: 'Casino card game', 
       rating: 4,
       expand: false,
     },
   ];
-  
-  const error = 'This is an error message';
-  let filter = 5;
 
-  const addItem = function(item) {
-    this.items.push(item);
+
+  const addBookmark = function(item) {
+    this.bookmarks.push(item);
   };
 
   const findById = function(id) {
-    return this.items.find(item => item.id === id);
+    return this.bookmarks.find(bookmark => bookmark.id === id);
   };
 
   const findAndDelete = function(id) {
-    this.items = this.items.filter(item => item.id !== id);
+    this.bookmarks = this.bookmarks.filter(bookmark => bookmark.id !== id);
   };
 
   const findAndUpdate = function(id, newData) {
-    let itemId = this.findById(id);
-    Object.assign(itemId, newData);
+    let bookmarkId = this.findById(id);
+    Object.assign(bookmarkId, newData);
   };
 
   const findAndExpand = function(id) {
-    // this function works to expand and view details of the list item
-    // work one user story at a time
+    // this function works to expand and view details of the list bookmark
+    // work at one user story at a time
   };
 
   const filterRatings = function(data) {
@@ -61,8 +59,11 @@ const Store = (function(){
   };
 
   return {
-    items,
-    addItem,
+    bookmarks,
+    expand: false,
+    error: null,
+    filter: 5,
+    addBookmark,
     findById,
     findAndDelete,
     findAndUpdate,
