@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Bookmarks App</h1>
+    <form id="js-bookmark-list-form">
+      <input type="text" name="bookmark-list-title" class="js-bookmark-list-entry title" placeholder="Title">
+      <input type="text" name="bookmark-list-url" class="js-bookmark-list-entry url" placeholder="URL">
+      <div>
+          <textarea rows="4" cols="50" name="comment" form="usrform">Description(optional)</textarea>
+      </div>
+
+      <div>
+        <button type="submit">Add Bookmark</button>
+        <select class="filter-rating">
+          <option value="default">Minimum Rating</option>
+          <option value="5">&#x2606&#x2606&#x2606&#x2606&#x2606</option>
+          <option value="4">&#x2606&#x2606&#x2606&#x2606</option>
+          <option value="3">&#x2606&#x2606&#x2606</option>
+          <option value="2">&#x2606&#x2606</option>
+          <option value="1">&#x2606</option>
+        </select>
+      </div>
+      
+      <div id="rating">
+          <fieldset>
+              <legend>Select a rating</legend>
+      
+              <div>
+                  <input type="radio" id="five-stars" name="star" checked />
+                  <label for="five-stars">&#x2606&#x2606&#x2606&#x2606&#x2606</label>
+              </div>
+      
+              <div>
+                  <input type="radio" id="four-stars" name="star" />
+                  <label for="four-stars">&#x2606&#x2606&#x2606&#x2606</label>
+              </div>
+      
+              <div>
+                  <input type="radio" id="three-stars" name="star" />
+                  <label for="three-stars">&#x2606&#x2606&#x2606</label>
+              </div>
+
+              <div>
+                  <input type="radio" id="two-stars" name="star" />
+                  <label for="two-stars">&#x2606&#x2606</label>
+              </div>
+      
+              <div>
+                  <input type="radio" id="one-star" name="star" />
+                  <label for="one star">&#x2606</label>
+              </div>
+      
+          </fieldset>
+      </div>
+
+    </form>
+    <ul class="bookmark-list js-bookmark-list">
+    </ul>
+  </div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="scripts/api.js"></script>
+  <script type="text/javascript" src="scripts/Store.js"></script>
+  <script type="text/javascript" src="scripts/bookmark.js"></script>
+  <script type="text/javascript" src="scripts/main.js"></script>
+
+</body>
+</html>
