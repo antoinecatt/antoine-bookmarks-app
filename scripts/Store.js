@@ -4,33 +4,36 @@
 
 const Store = (function(){
 
-  const bookmarks = [
-    {
-      id: 1235432,
-      title: 'Gwent',
-      url: 'url-here.com', 
-      description: 'Wticher 3 card game', 
-      rating: 5,
-      expand: false,
-    },
-    {
-      id: 1235432,
-      title: 'HearthStone',
-      url: 'url-here.com', 
-      description: 'Blizzard card game', 
-      rating: 4,
-      expand: false,
-    },
-    {
-      id: 1235432,
-      title: 'Blackjack',
-      url: 'url-here.com', 
-      description: 'Casino card game', 
-      rating: 4,
-      expand: false,
-    },
-  ];
+  // const bookmarks = [
+  //   {
+  //     id: 1235432,
+  //     title: 'Gwent',
+  //     url: 'url-here.com', 
+  //     description: 'Wticher 3 card game', 
+  //     rating: 5,
+  //     expand: false,
+  //   },
+  //   {
+  //     id: 1235432,
+  //     title: 'HearthStone',
+  //     url: 'url-here.com', 
+  //     description: 'Blizzard card game', 
+  //     rating: 4,
+  //     expand: false,
+  //   },
+  //   {
+  //     id: 1235432,
+  //     title: 'Blackjack',
+  //     url: 'url-here.com', 
+  //     description: 'Casino card game', 
+  //     rating: 4,
+  //     expand: false,
+  //   },
+  // ];
 
+  const setError = function(error) {
+    this.error = error;
+  };
 
   const addBookmark = function(item) {
     this.bookmarks.push(item);
@@ -54,21 +57,18 @@ const Store = (function(){
     // work at one user story at a time
   };
 
-  const filterRatings = function(data) {
-    // this function filters which rating the user chooses
-  };
+
 
   return {
-    bookmarks,
-    expand: false,
+    bookmarks: [],
     error: null,
     filter: 5,
+
     addBookmark,
     findById,
     findAndDelete,
     findAndUpdate,
     findAndExpand,
-    filterRatings
   };
 
 }()

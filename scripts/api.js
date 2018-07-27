@@ -10,7 +10,8 @@ const API = (function(){
   };
 
   const createItem = function(title, url, desc, rating, callback) {
-    let bookMarkItem = {title, url, desc, rating}
+    let bookMarkItem = {title, url, desc, rating};
+    // convert object into string in order for the API to read the data being sent
     let newItem = JSON.stringify(bookMarkItem);
     $.ajax({
       url: `${BASE_URL}/bookmarks`,
@@ -41,7 +42,6 @@ const API = (function(){
   };
 
   return {
-    bookmarks: [],
     getItems,
     createItem,
     editItem,
