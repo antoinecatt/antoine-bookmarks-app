@@ -15,7 +15,7 @@ const Bookmark = (function(){
       itemRating += '<span>&#x2606</span>';
     }
 
-    let listHTML = `
+    let expandedlistHTML = `
     <li class="js-bookmark-element" data-item-id=${itemId}>
     <div class="box">
     ${itemTitle}
@@ -30,24 +30,50 @@ const Bookmark = (function(){
       <button class="bookmark-delete js-bookmark-delete">
         <span class="button-label">Delete</span>
       </button>
+      <button class="bookmark-expand js-bookmark-expand">
+        <span class="button-label">Expand</span>
+      </button>
     </div>
     <div class="stars">${itemRating}</div>
     </div>
   </li>
   `;
+
+    let listHTML = `
+    <li class="js-bookmark-element" data-item-id=${itemId}>
+    <div class="box">
+    ${itemTitle}
+    <div class="bookmark-item-controls">
+      <button class="bookmark-expand js-bookmark-expand">
+        <span class="button-label">Expand</span>
+      </button>
+    </div>
+    <div class="stars">${itemRating}</div>
+    </div>
+  </li>
+    `
     // button visit site should be a function and event listener
-    return listHTML;
+    
+    if(item.expanded) {
+      return expandedlistHTML;
+    } else {
+      return listHTML;
+    }
 
   };
+
+
 
   const render = function() {
     // Shows the results of the users action on the webpage
-    let itemList = Store.bookmarks.map(item => generateItemHTML(item));   
+    let filteredBookmarks = Store.bookmarks.filter(bookmark => bookmark.rating >= Store.filter)
+    let itemList = filteredBookmarks.map(item => generateItemHTML(item));   
     console.log('render ran');
+
     $('.js-bookmark-list').html(itemList); 
     
   };
-
+// 
   const handleAddBookmark = function(item) {
     // this adds an item inside of the store.bookmarks object
     $('#js-bookmark-list-form').submit(function(e) {
@@ -55,11 +81,13 @@ const Bookmark = (function(){
       let title = $('.title').val(),
         url = $('.url').val(),
         desc = $('textarea.description').val(),
-        rating = $('.star').val(); 
+        rating = $('.add-rating').val();
+
+        console.log(rating)
       $('.js-bookmark-list-entry').val('');
-      
+    
       API.createItem(title, url, desc, rating, newItem => {
-        console.log(newItem);
+        console.log(newItem);      
         Store.addBookmark(newItem);
         render();
         console.log('addItem ran');
@@ -83,11 +111,31 @@ const Bookmark = (function(){
     });
   };
 
+  const filterRatings = function(data) {
+    // this function filters which rating the user chooses
+    $('.filter-rating').on('change', function(e) {
+      let rating = $(this).val();
+      Store.filter = parseInt(rating);
+      render();
+    })
+  };
+
+  const expand = function() {
+    $('.js-bookmark-list').on('click', '.js-bookmark-expand', function(e) {
+      let id = $(this).closest('.js-bookmark-element').data('item-id');
+      Store.findAndExpand(id);
+      render();
+    })
+  }
 
   function bindEventListeners() {
     handleAddBookmark(),
     handleDeleteBookmark();
+    filterRatings();
+    expand();
   }
+
+  // capture the value ,update the store in that value, then rerender
 
   return {
     bindEventListeners,

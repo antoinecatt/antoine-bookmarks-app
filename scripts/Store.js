@@ -36,6 +36,7 @@ const Store = (function(){
   };
 
   const addBookmark = function(item) {
+    item.expanded = false;
     this.bookmarks.push(item);
   };
 
@@ -52,9 +53,22 @@ const Store = (function(){
     Object.assign(bookmarkId, newData);
   };
 
+  // const findAndFilter = function(rating) {
+  //   this.bookmarks = this.bookmarks.filter(bookmark => {
+  //     if(bookmark.rating === rating) {
+  //       this.filter = rating;
+  //     }
+  //   });
+  // };
+
   const findAndExpand = function(id) {
     // this function works to expand and view details of the list bookmark
-    // work at one user story at a time
+   this.bookmarks = this.bookmarks.map(bookmark => {
+     if(bookmark.id === id) {
+       bookmark.expanded = !bookmark.expanded;
+     }
+     return bookmark;
+   })
   };
 
 
@@ -62,12 +76,13 @@ const Store = (function(){
   return {
     bookmarks: [],
     error: null,
-    filter: 5,
+    filter: 1,
 
     addBookmark,
     findById,
     findAndDelete,
     findAndUpdate,
+    // findAndFilter,
     findAndExpand,
   };
 

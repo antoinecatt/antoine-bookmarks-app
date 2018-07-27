@@ -14,7 +14,7 @@
       <input type="text" name="bookmark-list-title" class="js-bookmark-list-entry title" placeholder="Title">
       <input type="text" name="bookmark-list-url" class="js-bookmark-list-entry url" placeholder="URL">
       <div>
-          <textarea class="js-bookmark-list-entry description" rows="4" cols="50" name="comment" form="usrform">Description(optional)</textarea>
+          <textarea class="js-bookmark-list-entry description" rows="4" cols="50" name="comment" form="usrform">Description</textarea>
       </div>
 
       <div>
@@ -28,38 +28,16 @@
           <option value="1">&#x2606</option>
         </select>
       </div>
-      
-      <div id="rating">
-          <fieldset>
-              <legend>Select a rating</legend>
-      
-              <div>
-                  <input value="5" type="radio" id="five-stars" class="star" name="star" checked />
-                  <label for="five-stars">&#x2606&#x2606&#x2606&#x2606&#x2606</label>
-              </div>
-      
-              <div>
-                  <input value="4" type="radio" id="four-stars" class="star" name="star" />
-                  <label for="four-stars">&#x2606&#x2606&#x2606&#x2606</label>
-              </div>
-      
-              <div>
-                  <input value="3" type="radio" id="three-stars" class="star" name="star" />
-                  <label for="three-stars">&#x2606&#x2606&#x2606</label>
-              </div>
 
-              <div>
-                  <input value="2" type="radio" id="two-stars" class="star" name="star" />
-                  <label for="two-stars">&#x2606&#x2606</label>
-              </div>
+      <select class="add-rating">
+        <option value="default">Add Rating</option>
+        <option value="5">&#x2606&#x2606&#x2606&#x2606&#x2606</option>
+        <option value="4">&#x2606&#x2606&#x2606&#x2606</option>
+        <option value="3">&#x2606&#x2606&#x2606</option>
+        <option value="2">&#x2606&#x2606</option>
+        <option value="1">&#x2606</option>
+      </select>
       
-              <div>
-                  <input value="1" type="radio" id="one-star" class="star" name="star" />
-                  <label for="one star">&#x2606</label>
-              </div>
-      
-          </fieldset>
-      </div>
 
     </form>
     <ul class="bookmark-list js-bookmark-list">
