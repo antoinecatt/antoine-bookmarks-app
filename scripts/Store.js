@@ -4,36 +4,35 @@
 
 const Store = (function(){
 
-  const items = {
-    item: [
-      {
-        id: 1235432,
-        title: 'Gwent',
-        url: 'url-here.com', 
-        description: 'Wticher 3 card game', 
-        rating: 5,
-        expand: false,
-      },
-      {
-        id: 1235432,
-        title: 'HearthStone',
-        url: 'url-here.com', 
-        description: 'Blizzard card game', 
-        rating: 4,
-        expand: false,
-      },
-      {
-        id: 1235432,
-        title: 'Gwent',
-        url: 'url-here.com', 
-        description: 'Real life card game', 
-        rating: 4,
-        expand: false,
-      },
-    ],
-    error: 'This is an error message',
-    filter: 5
-  };
+  const items = [
+    {
+      id: 1235432,
+      title: 'Gwent',
+      url: 'url-here.com', 
+      description: 'Wticher 3 card game', 
+      rating: 5,
+      expand: false,
+    },
+    {
+      id: 1235432,
+      title: 'HearthStone',
+      url: 'url-here.com', 
+      description: 'Blizzard card game', 
+      rating: 4,
+      expand: false,
+    },
+    {
+      id: 1235432,
+      title: 'Gwent',
+      url: 'url-here.com', 
+      description: 'Real life card game', 
+      rating: 4,
+      expand: false,
+    },
+  ];
+  
+  const error = 'This is an error message';
+  let filter = 5;
 
   const addItem = function(item) {
     this.items.push(item);

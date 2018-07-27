@@ -36,13 +36,18 @@ const Bookmark = (function(){
 
   const render = function() {
     // Shows the results of the users action on the webpage
-    let itemList = Store.items.item.forEach(item => generateItemHTML(item));
-    $('.js-bookmark-list').html(itemList);
+    let itemList = Store.items.map(item => generateItemHTML(item));   
     console.log('render ran');
+    $('.js-bookmark-list').html(itemList); 
+    
   };
 
   const handleAddItem = function(item) {
     // this adds an item inside of the store object
+  $('#js-bookmark-list-form').on('submit', function(e) {
+    e.preventDefault();
+    console.log('addItem ran')
+  })
   };
 
   const getItemIdFromElement = function(item) {
